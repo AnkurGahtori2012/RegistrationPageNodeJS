@@ -1,6 +1,16 @@
 var db = require('./schema');
 module.exports = {
-
+    allUser:()=>
+    new Promise((resolve,reject)=>{
+        db.find({},{_id:0},(err,data)=>{
+            if(!err){
+                resolve(data);
+            }
+            else{
+                reject("Error");
+            }
+        })
+    }),
     getUserById: (userEmail) =>
         { return new Promise((resolve, reject) => {
             db.findOne({
@@ -37,11 +47,11 @@ module.exports = {
                         if (data.length == 0) {
                             reject('Error');
                         }
-                        console.log("Call reached here");
                         resolve(data);
                     }
                 });
 
         })
     }
+    
 }
