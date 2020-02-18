@@ -16,21 +16,21 @@ router.post("/createUser", async (req, res) => {
     }
 })
 
-router.get('/allUser',async(req,res)=>{
-    try{
-        let data=await api.allUser();
+router.get('/allUser', async (req, res) => {
+    try {
+        let data = await api.allUser();
         res.send(data);
-    }
-    catch(err){
+    } catch (err) {
         end("some error might be there");
     }
 })
 router.post("/loginUser", async (req, res) => {
     try {
         let result = await api.loginUser(req.body);
-        res.redirect("index3.html");
+        res.redirect("actualgame/index3.html");
+
     } catch (err) {
-        res.send("<script>alert(\"Invalid detail\");location.href='current/index2.html'</script>");
+        res.send("<script>alert(\"Invalid detail\");location.href='index2.html'</script>");
     }
 })
 module.exports = router;

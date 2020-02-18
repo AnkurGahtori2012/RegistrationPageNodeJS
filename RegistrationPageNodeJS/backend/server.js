@@ -5,8 +5,7 @@ const hotname="192.168.100.189";
 const router=require("./router");
 const bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static('/home/com64/Desktop/w3Demo/hangMan/actualgame'));
-app.use('/current',express.static('/home/com64/Desktop/Registration/RegistrationPageNodeJS/frontend'))
+app.use(express.static('RegistrationPageNodeJS/frontend'))
 const mongoose=require('mongoose');
 //ejs
 mongoose.connect("mongodb://localhost:27017/detail",(err,result)=>{
