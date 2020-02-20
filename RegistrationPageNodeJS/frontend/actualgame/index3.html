@@ -6,31 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HangMan Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../../actualgame/style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
 </head>
 
 <body>
     <div class="flex-container">
         <!-- ------------------------------------------------------------------------------------------------------------- -->
         <div class="row">
-            <div class="col-lg-10  text-center question">
-                <!-- question(hint) -->
-                <h1 class="display-1" id="hint"></h1>
-            </div>
-            <div class="col-lg-2">
-                <a href="/"><button>LogOut</button></a href="/">
-            </div>
+
+            <%if(user){%>
+                <div class="col-lg-4">
+
+                    <div class="card" style="margin : 20px;">
+                        <img class="card-img-top" src="<%=user.img%>" alt="Card image cap"
+                            style="height: 18rem;width: 18rem;">
+                        <div class="card-body">
+                            <h1 class="card-title"><%=user.username%></h1>
+                            <p class="card-text"><%=user.email%></p>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="col-lg-6  text-center question">
+                    <!-- question(hint) -->
+                    <h1 class="display-1" id="hint"></h1>
+    
+                </div>
+                <div class="col-lg-2  text-center ">
+                    <!-- question(hint) -->
+                    <a href="/logout"><button>Logout</button></a>
+                </div>
+                    <%}else{%>
+                    <div class="col-lg-10  text-center question">
+                        <!-- question(hint) -->
+                        <h1 class="display-1" id="hint"></h1>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="../logout"><button>LogOut</button></a href="/">
+                    </div>
+                    <%}%>
         </div>
         <br><br>
         <div class="row justify-content-center" id="suggestion">
         </div>
         <!-- ------------------------------------------------------------------------------------------------------------- -->
         <div class="row d-flex ">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <div class="row" id="alphabet">
 
                     <!-- keyboard -->
@@ -67,7 +91,13 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <img src="s1.png" alt="Your Status" class="rounded" id="hungman">
+                <img src="../../actualgame/s1.png" alt="Your Status" class="rounded" id="hungman">
+            </div>
+            <div class="col-lg-1" style="background-color: green;padding:auto;float:left">
+                <h1>WON</h1>
+                <h2><%=user.win%></h2>
+                <hr>
+                <h2><%=user.totel%></h2>
             </div>
         </div>
 
@@ -85,7 +115,15 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="../../actualgame/script.js">
+    function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () {
+            null
+        };
+    </script>
 </body>
 
 </html>

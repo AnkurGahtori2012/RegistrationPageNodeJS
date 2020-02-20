@@ -1,10 +1,12 @@
+const db=require('../backend/schema.js')
+
 const questionAnswer = [
     ["Capital Of India", "DELHI"],
     ["RED COLOR FRUIT NAME having 'E'", "APPLE"],
     ["Longest River Of India", "GANGA"],
     ["Charminar is situated in which state?", "HYDERABAD"],
     ["Month name having longest day of the year", "JUNE"],
-    ["Top color in Indian flag", "SAFFORON"],
+    ["Top color in Indian flag", "SAFFRON"],
     ["a position on a scale of amount, quantity, extent, or quality(pallindrome)", "LEVEL"],
     ["Lightest gas", "HYDROGEN"]
 ];
@@ -135,7 +137,7 @@ function validate(inputBtn) {
 
 function changeImage() {
     if (count < 8) {
-        document.getElementById("hungman").src = "s" + count + ".png";
+        document.getElementById("hungman").src = "../../actualgame/s" + count + ".png";
         let newtop = -300;
         let id = setInterval(function () {
             if (newtop != 10) {
@@ -152,17 +154,18 @@ function changeImage() {
 }
 
 function win() {
+    db.update({email:user.email},{$inc:{win:1,totel:1}});
     document.getElementsByClassName("flex-container")[0].remove();
-    document.body.innerHTML = "<img src='win.png' style='margin-left:300px; margin-top:100px;'>";
+    document.body.innerHTML = "<img src='actualgame/win.png' style='margin-left:300px; margin-top:100px;'>";
     setTimeout(function () {
-        window.open("/home/com64/Desktop/w3Demo/hangMan/index.html", "_self");
+        window.open("/game", "_self");
     }, 1000);
 
 }
 
 function lose() {
     document.getElementsByClassName("flex-container")[0].remove();
-    document.body.innerHTML = "<img src='lose.jpg' style='margin-left:300px; margin-top:100px;'>";
+    document.body.innerHTML = "<img src='actualgame/lose.jpg' style='margin-left:300px; margin-top:100px;'>";
     setTimeout(function () {
         window.open("/home/com64/Desktop/w3Demo/hangMan/index.html", "_self");
 

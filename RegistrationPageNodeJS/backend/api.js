@@ -37,14 +37,14 @@ module.exports = {
                 "email": email,
                 "password": password
             }
-            console.log(filter);
-            db.find(
+            // console.log(filter);
+            db.findOne(
                 filter, (err, data) => {
                     if (err) {
                         console.log("Invalid Detail or Somthing went Wrong");
 
                     } else {
-                        if (data.length == 0) {
+                        if (!data) {
                             reject('Error');
                         }
                         resolve(data);

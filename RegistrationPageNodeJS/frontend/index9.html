@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>REGISTRATION PAGE FOR NOTHING</h1>
-        <form action="http://192.168.100.189:8081/createUser" method="POST">
+        <form action="http://192.168.100.189:8081/createUser" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-25">
                     <label for="fname">First Name</label>
@@ -29,13 +29,12 @@
                     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-25">
-                    <label for="password">Password</label>
+                    <label for="image">Select Image</label>
                 </div>
                 <div class="col-75">
-                    <input type="password" id="password" name="password" required placeholder="Enter Password">
+                    <input type="file" id="image" name="image" placeholder="Your last name..">
                 </div>
             </div>
             <div class="row">
@@ -46,6 +45,16 @@
                     <input type="email" id="email" required name="email" required placeholder="Email address">
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="password" id="password" name="password" required placeholder="Enter Password">
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-25">
                     <label for="state">state</label>
@@ -63,16 +72,16 @@
             </div>
 
             <div class="row">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Signup">
             </div>
-           
+
         </form>
-        <div >
-            <a class="row " href="index2.html"><button class="e">Login</button></a>
+        <div>
+            <a class="row " href="/login"><button class="e">Login</button></a>
         </div>
-        
-        <div >
-            <a class="row" href="/allUser"><button class="e" >Forget</button class="row"></a>
+
+        <div>
+            <a class="row" href="/auth/login"><button class="e">Google+ Login</button class="row"></a>
         </div>
 
     </div>
