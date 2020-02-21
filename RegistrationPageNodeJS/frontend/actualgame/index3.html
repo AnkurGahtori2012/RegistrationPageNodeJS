@@ -10,7 +10,14 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-</head>
+    <script>function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+        null
+    };</script>
+    </head>
 
 <body>
     <div class="flex-container">
@@ -20,7 +27,7 @@
             <%if(user){%>
                 <div class="col-lg-4">
 
-                    <div class="card" style="margin : 20px;">
+                    <div class="card" style="margin : 20px;display: flex;">
                         <img class="card-img-top" src="<%=user.img%>" alt="Card image cap"
                             style="height: 18rem;width: 18rem;">
                         <div class="card-body">
@@ -49,12 +56,11 @@
                     </div>
                     <%}%>
         </div>
-        <br><br>
         <div class="row justify-content-center" id="suggestion">
         </div>
         <!-- ------------------------------------------------------------------------------------------------------------- -->
         <div class="row d-flex ">
-            <div class="col-lg-7">
+            <div class="col-lg-8">
                 <div class="row" id="alphabet">
 
                     <!-- keyboard -->
@@ -90,14 +96,14 @@
 
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-2">
                 <img src="../../actualgame/s1.png" alt="Your Status" class="rounded" id="hungman">
             </div>
-            <div class="col-lg-1" style="background-color: green;padding:auto;float:left">
+            <div class="col-lg-2" style="background-color: green;text-align:center;padding:0;float:left">
                 <h1>WON</h1>
                 <h2><%=user.win%></h2>
                 <hr>
-                <h2><%=user.totel%></h2>
+                <h2><%=user.total%></h2>
             </div>
         </div>
 
@@ -116,13 +122,6 @@
         </div>
     </div>
     <script src="../../actualgame/script.js">
-    function preventBack() {
-            window.history.forward();
-        }
-        setTimeout("preventBack()", 0);
-        window.onunload = function () {
-            null
-        };
     </script>
 </body>
 

@@ -12,7 +12,7 @@ body{
     color:green;
 }
 #alphabet {
-    margin:50px 50px;
+    margin:50px 15px;
     font-size: 4em;
     text-align: center;
 }
@@ -21,8 +21,8 @@ body{
     position: relative;
     height: 250px;
 }
-#howtoplay{
-   margin: auto;
+#howtoplay,#howtoplay h5{
+   margin: 0;
 }
 .flex-container{
     /* background-color: #ec8b5e; */

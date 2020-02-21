@@ -9,7 +9,7 @@ const userSchema=new Schema({
     username:{type:String},
     googleid:{type:String},
     img:{type:String},
-    totel:{type:Number,default:0},
+    total:{type:Number,default:0},
     win:{type:Number,default:0}
 },
 {versionKey: false}

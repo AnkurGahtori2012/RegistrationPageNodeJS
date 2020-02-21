@@ -1,4 +1,3 @@
-const db=require('../backend/schema.js')
 
 const questionAnswer = [
     ["Capital Of India", "DELHI"],

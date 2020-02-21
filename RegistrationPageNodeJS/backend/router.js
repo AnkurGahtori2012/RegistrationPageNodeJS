@@ -7,7 +7,7 @@ const passport = require('passport');
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'RegistrationPageNodeJS/frontend/actualgame/uploads')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname + '-' + Date.now())
@@ -30,10 +30,11 @@ router.get("/", (req, res) => {
 router.post("/createUser",upload.single('image'), async (req, res, next) => {
     
     try {
-        console.log(req.body);
+        // console.log(req.body);
         await api.getUserById(req.body.email);
-        req.body['img']=req.file.path;
-        console.log(req.body);
+        req.body['username']=req.body.firstname+" "+req.body.lastname;
+        req.body['img']="../../actualgame/"+(req.file.path).split('actualgame/')[1];
+        // console.log(req.body);
         
         await api.createUser(req.body);
         res.render("index2.html");
